@@ -12,6 +12,7 @@ public class XSLWriterJDOM2 {
 
     public XSLWriterJDOM2(String continent, String language, String superficieMin, String superficieMax){
         System.out.println(continent + " " + language + " " + superficieMin + " " + superficieMax);
+        // //element[region="Europe"] (selectionne tous les pays en Erupre)
     }
 
     /**
