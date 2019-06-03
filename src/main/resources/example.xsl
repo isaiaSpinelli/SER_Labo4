@@ -55,13 +55,22 @@ xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
 									<xsl:value-of select="flag"/>
 								</xsl:attribute>
 							</img>
-							Capital : <br/>
-							Population : habitants <br/>
-							Superficie : km2 <br/>
-							Continent :  <br/>
-							Sous-Continent : <br/>
+							Capital : <xsl:value-of select="./capital"/> <br/>
+							Population : <xsl:value-of select="./population"/> habitants <br/>
+							Superficie : <xsl:value-of select="./area"/> km2 <br/>
+							Continent : <xsl:value-of select="./region"/>  <br/>
+							Sous-Continent : <xsl:value-of select="./subregion"/>  <br/>
 							<br/><br/>
-							Langues parlées
+							Langues parlées<br/>
+							
+							<ul>
+							<xsl:for-each select="./languages/element/name">
+							 <li>
+								<xsl:value-of select="." /><br/>
+							</li>
+							</xsl:for-each>	
+							</ul>
+							
 							</p> 
 						  <div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
