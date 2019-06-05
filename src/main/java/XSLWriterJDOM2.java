@@ -19,7 +19,8 @@ public class XSLWriterJDOM2 {
 
     public XSLWriterJDOM2(String continent, String language, String superficieMin, String superficieMax){
         System.out.println(continent + " " + language + " " + superficieMin + " " + superficieMax);
-        // //element[region="Europe"] (selectionne tous les pays en Erupre)
+        // element[region="Europe"] (selectionne tous les pays en Erupre)
+        // countries/element[./languages/element/name = 'French'] (selectionne tous les pays qui parle le francais)
     }
 
     /**
@@ -51,6 +52,59 @@ public class XSLWriterJDOM2 {
             racine.appendChild(output);
 
             // Crée et ajoute le template
+            Element template = document.createElement("xsl:template");
+            template.setAttribute("match", "/");
+            output.appendChild(template);
+            // ajoute la balise html
+            Element html = document.createElement("html");
+            template.appendChild(html);
+
+            // HEAD
+
+            // ajoute la balise head
+            Element head = document.createElement("head");
+            html.appendChild(head);
+            // ajoute la title
+            Element title = document.createElement("title");
+            title.setTextContent("Cours HEIG-VD SER");
+            head.appendChild(title);
+            // ajoute des script
+            Element script = document.createElement("script");
+            script.setAttribute("src", "js/jquery-3.4.1.min.js");
+            head.appendChild(script);
+            Element script2 = document.createElement("script");
+            script2.setAttribute("src", "js/bootstrap.min.js");
+            head.appendChild(script2);
+            // ajoute du link
+            Element link = document.createElement("link");
+            link.setAttribute("rel", "stylesheet");
+            link.setAttribute("href", "css/bootstrap.min.css");
+            head.appendChild(script2);
+
+            // FIN HEAD
+
+
+            // ajoute la balise body
+            Element body = document.createElement("body");
+            template.appendChild(body);
+
+            // Crée et ajoute le for-each (En fonction des paramétres selectionné ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Element forEach = document.createElement("xsl:for-each");
+            // value à modifié !!!!!!!!!!!!!!!!!!!!!!!!!!!
+            forEach.setAttribute("select", "countries/element[./languages/element/name = 'French']");
+            body.appendChild(forEach);
+
+            // Ajout du bouton trigger modal
+            Element text = document.createElement("xsl:text");
+            text.setAttribute("disable-output-escaping", "no");
+            text.setTextContent("test " + '<' + "!-- Button trigger modal --/> et < ");
+            forEach.appendChild(text);
+
+
+            // Ajout du modal
+
+
+
 
 
             // Ecriture de la racine dans le document

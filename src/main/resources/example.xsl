@@ -28,10 +28,10 @@ xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
 					<!-- Button trigger modal -->
 					<button style="height:30px;width:250px" type="button" class="btn btn-primary" data-toggle="modal">
 						<xsl:attribute name="data-target">
-									#<xsl:value-of select="./altSpellings/element[1]"/>
+									#<xsl:value-of select="./translations/fr"/>
 						</xsl:attribute>
 						<p>
-							<xsl:value-of select="./demonym" />
+							<xsl:value-of select="./translations/fr" />
 							<img height="20" width="25" style="float: right;"><xsl:attribute name="src"><xsl:value-of select="flag"/></xsl:attribute></img> 
 						</p>
 					</button>
@@ -39,12 +39,12 @@ xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
 					<!-- Modal -->
 					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<xsl:attribute name="id">
-								<xsl:value-of select="./altSpellings/element[1]"/>
+								<xsl:value-of select="./translations/fr"/>
 					</xsl:attribute>
 					  <div class="modal-dialog" role="document">
 						<div class="modal-content">
 						  <div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel"><xsl:value-of select="./altSpellings/element[2]" /></h5>
+							<h5 class="modal-title" id="exampleModalLabel"><xsl:value-of select="./translations/fr" /></h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							x
 							</button>
