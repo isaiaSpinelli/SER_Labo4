@@ -23,7 +23,7 @@ xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
 				<link rel="stylesheet" href="css/bootstrap.min.css" />
 			</head>
 			<body>
-				<xsl:for-each select="countries/element[./languages/element/name = 'French']">
+				<xsl:for-each select="countries/element[region ='Europe' and ./languages/element/name = 'French']">
 					
 					<!-- Button trigger modal -->
 					<button style="height:30px;width:250px" type="button" class="btn btn-primary" data-toggle="modal">

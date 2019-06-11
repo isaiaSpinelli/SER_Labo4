@@ -15,21 +15,52 @@ public class XSLWriterJDOM2 {
     private Element xslRoot;
     private Element document;
     private Document documentType;
+    // Permet de faire la requête xPath
+    private String valueRequet = "countries/element[./languages/element/name = 'French']";
 
 
     public XSLWriterJDOM2(String continent, String language, String superficieMin, String superficieMax){
         System.out.println(continent + " " + language + " " + superficieMin + " " + superficieMax);
         // element[region="Europe"] (selectionne tous les pays en Erupre)
         // countries/element[./languages/element/name = 'French'] (selectionne tous les pays qui parle le francais)
+
+        if(!continent.equals("")){
+            valueRequet = "countries/element[region='"+continent+"'";
+        }
+        if(!language.equals("")){
+            // Si la valeur de la requete contient deja une requete
+            if(!valueRequet.equals("")){
+                // ajout le AND
+                valueRequet += " and ";
+            }
+            valueRequet += "./languages/element/name = '"+language+"'" ;
+        }
+        if(!superficieMin.equals("")){
+            // Si la valeur de la requete contient deja une requete
+            if(!valueRequet.equals("")){
+                // ajout le AND
+                valueRequet += " and ";
+            }
+            valueRequet += "./area > '"+superficieMin+"'" ;
+        }
+        if(!superficieMax.equals("")){
+            // Si la valeur de la requete contient deja une requete
+            if(!valueRequet.equals("")){
+                // ajout le AND
+                valueRequet += " and ";
+            }
+        }
+
+        valueRequet+="]";
+
+
+        CreateFileXSL();
+
+
+
     }
 
-    /**
-     * Permet d'instancier la structure principal du fichier XSL l'en-tête root et document
-     */
-    public XSLWriterJDOM2() {
-    }
-
-    public static void main(String ... args) {
+    private void CreateFileXSL() {
 
         try {
 
@@ -91,7 +122,7 @@ public class XSLWriterJDOM2 {
             // Crée et ajoute le for-each (En fonction des paramétres selectionné ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             Element forEach = document.createElement("xsl:for-each");
             // value à modifié !!!!!!!!!!!!!!!!!!!!!!!!!!!
-            forEach.setAttribute("select", "countries/element[./languages/element/name = 'French']");
+            forEach.setAttribute("select", valueRequet);
             body.appendChild(forEach);
 
             // Ajout du bouton trigger modal
@@ -133,5 +164,12 @@ public class XSLWriterJDOM2 {
         }
 
     }
+
+    public static void main(String ... args) {
+
+        XSLWriterJDOM2 test = new XSLWriterJDOM2("","French","","");
+
+    }
+
 
 }

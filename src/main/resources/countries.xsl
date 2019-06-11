@@ -10,7 +10,7 @@
         </head>
       </html>
       <body>
-        <xsl:for-each select="countries/element[./languages/element/name = 'French']">
+        <xsl:for-each select="countries/element[./languages/element/name = 'French'] and ./languages/element/name = 'French']">
           <xsl:text disable-output-escaping="no">test &lt;!-- Button trigger modal --/&gt; et &lt; </xsl:text>
         </xsl:for-each>
       </body>
