@@ -2,7 +2,7 @@
 
 <?xml-stylesheet
 type = "text/xsl"
-href = "example.xsl"
+href = "countries.xsl"
 ?>
 
 <countries>

@@ -91,10 +91,8 @@ public class InterfaceRecherchePays extends JFrame {
 
 
     }
-
     public static void main(String ... args) {
-
-        new InterfaceRecherchePays(new File("countries.xml"));
-
+        InterfaceRecherchePays test =  new InterfaceRecherchePays(new File("countries_NEW.xml"));
     }
+
 }

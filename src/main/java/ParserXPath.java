@@ -29,7 +29,7 @@ public class ParserXPath {
         Document doc = null;
         try {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
-                    new InputSource("./src/main/resources/countries.xml"));
+                    new InputSource("./src/main/resources/countries_NEW.xml"));
 
 
             XPath xpath = XPathFactory.newInstance().newXPath(); // //employee/name[text()='old']
@@ -71,7 +71,7 @@ public class ParserXPath {
         Document doc = null;
         try {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
-                    new InputSource("./src/main/resources/countries.xml"));
+                    new InputSource("./src/main/resources/countries_NEW.xml"));
 
 
             XPath xpath = XPathFactory.newInstance().newXPath(); // //employee/name[text()='old']
