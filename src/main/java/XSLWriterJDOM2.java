@@ -39,6 +39,9 @@ public class XSLWriterJDOM2 {
                 // ajout le AND
                 valueRequet += " and ";
             }
+            else{
+                valueRequet = "countries/element[";
+            }
             valueRequet += "./languages/element/name = '"+language+"'" ;
         }
         if(!superficieMin.equals("")){
@@ -47,6 +50,9 @@ public class XSLWriterJDOM2 {
                 // ajout le AND
                 valueRequet += " and ";
             }
+            else{
+                valueRequet = "countries/element[";
+            }
             valueRequet += "./area > '"+superficieMin+"'" ;
         }
         if(!superficieMax.equals("")){
@@ -54,6 +60,9 @@ public class XSLWriterJDOM2 {
             if(!valueRequet.equals("")){
                 // ajout le AND
                 valueRequet += " and ";
+            }
+            else{
+                valueRequet = "countries/element[";
             }
             valueRequet += "'"+superficieMax+"'"+">"+"./area" ;
 			

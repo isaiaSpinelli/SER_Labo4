@@ -11,10 +11,9 @@
 				<script src="js/jquery-3.4.1.min.js"/>
 				<script src="js/bootstrap.min.js"/>
 				<link href="css/bootstrap.min.css" rel="stylesheet"/>
-				
 			</head>
 			<body>
-				<xsl:for-each select="countries/element">
+				<xsl:for-each select="countries/element[region='Europe' and ./languages/element/name = 'French']">
 					<xsl:sort select="./translations/fr"/>
 					<!-- Button trigger modal -->
 					<button class="btn btn-primary" data-toggle="modal" style="height:30px;width:250px" type="button">
