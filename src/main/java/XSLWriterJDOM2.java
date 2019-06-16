@@ -22,7 +22,7 @@ public class XSLWriterJDOM2 {
 
 
     // Permet de faire la requête xPath
-    private String valueRequet = "countries/element[./languages/element/name = 'French']";
+    private String valueRequet = "";
 
 
     public XSLWriterJDOM2(String continent, String language, String superficieMin, String superficieMax){
@@ -55,9 +55,16 @@ public class XSLWriterJDOM2 {
                 // ajout le AND
                 valueRequet += " and ";
             }
+            valueRequet += "'"+superficieMax+"'"+">"+"./area" ;
+			
+        }
+        if(!valueRequet.equals("")){
+            valueRequet+="]";
+        }
+        else{
+            valueRequet = "countries/element";
         }
 
-        valueRequet+="]";
 
 
         CreateFileXSL();

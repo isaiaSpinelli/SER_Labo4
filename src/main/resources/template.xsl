@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<?xml version = "1.0" encoding = "UTF-8" ?>
+
+<xsl:stylesheet
+version = "1.0"
+xmlns:xsl = "http://www.w3.org/1999/XSL/Transform">
 
 
-	<xsl:output encoding="UTF-8" indent="yes" method="html"/>
+	<xsl:output
+	method = "html"
+	encoding = "UTF-8"
+	indent = "yes"
+	/>
 
 	<xsl:template match="/">
 		<html>
@@ -10,38 +18,37 @@
 				<!--Bootstrap stylesheet and javascript -->
 				<script src="js/jquery-3.4.1.min.js"/>
 				<script src="js/bootstrap.min.js"/>
-				<link href="css/bootstrap.min.css" rel="stylesheet"/>
-				
+				<link rel="stylesheet" href="css/bootstrap.min.css"/>
 			</head>
 			<body>
 				<xsl:for-each select="countries/element">
-					<xsl:sort select="./translations/fr"/>
+					<xsl:sort select="./translations/fr" />
 					<!-- Button trigger modal -->
-					<button class="btn btn-primary" data-toggle="modal" style="height:30px;width:250px" type="button">
+					<button style="height:30px;width:250px" type="button" class="btn btn-primary" data-toggle="modal">
 						<xsl:attribute name="data-target">
 									#<xsl:value-of select="./alpha3Code"/>
 						</xsl:attribute>
 						<p>
-							<xsl:value-of select="./translations/fr"/>
-							<img height="20" style="float: right;" width="25"><xsl:attribute name="src"><xsl:value-of select="flag"/></xsl:attribute></img> 
+							<xsl:value-of select="./translations/fr" />
+							<img height="20" width="25" style="float: right;"><xsl:attribute name="src"><xsl:value-of select="flag"/></xsl:attribute></img> 
 						</p>
 					</button>
 				
 					<!-- Modal -->
-					<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" role="dialog" tabindex="-1">
+					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<xsl:attribute name="id">
 								<xsl:value-of select="./alpha3Code"/>
 					</xsl:attribute>
 					  <div class="modal-dialog" role="document">
 						<div class="modal-content">
 						  <div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel"><xsl:value-of select="./translations/fr"/></h5>
-							<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<h5 class="modal-title" id="exampleModalLabel"><xsl:value-of select="./translations/fr" /></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							x
 							</button>
 						  </div>
 							<p> 
-							  <img height="150" style="float: left;" width="210">
+							  <img height="150" width="210" style="float: left;">
 								<xsl:attribute name="src">
 									<xsl:value-of select="flag"/>
 								</xsl:attribute>
@@ -57,13 +64,13 @@
 							<ul>
 							<xsl:for-each select="./languages/element/name">
 							 <li>
-								<xsl:value-of select="."/><br/>
+								<xsl:value-of select="." /><br/>
 							</li>
 							</xsl:for-each>	
 							</ul>
 							</p> 
 						  <div class="modal-footer">
-							<button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						  </div>
 						</div>
 					  </div>
